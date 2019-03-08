@@ -1,0 +1,103 @@
+#!/bin/bash
+pushd "$HOME/dotfiles" > /dev/null || exit 1;
+
+CURRENT_HASH=`md5sum update | awk '{ print $1 }'`
+
+# echo -n "Pulling changes... "
+# git pull
+# git submodule init
+# git submodule sync
+# git submodule update
+
+NEW_HASH=`md5sum update | awk '{ print $1 }'`
+if [ "$CURRENT_HASH" != "$NEW_HASH" ]
+then
+    echo "The update script has changed."
+    ./update
+    exit
+fi
+
+echo "Syncing..."
+./sync
+
+#!/bin/sh
+
+echo "Setting up your Mac..."
+
+# Check for Homebrew and install if we don't have it
+if test ! $(which brew); then
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+
+# Update Homebrew recipes
+brew update
+
+# Install all our dependencies with bundle (See Brewfile)
+brew tap homebrew/bundle
+brew bundle
+
+# Make ZSH the default shell environment
+# chsh -s $(which zsh)
+
+# Install PHP extensions with PECL
+pecl install imagick
+
+source "$HOME/.bashrc"
+if [ ! -f bin/composer ]
+then
+    echo "Installing composer..."
+	curl -sS https://getcomposer.org/installer | php -- --install-dir=bin --filename=composer
+fi
+
+# Install global Composer packages
+/usr/local/bin/composer global require laravel/installer laravel/spark-installer laravel/valet
+
+# Install Laravel Valet
+$HOME/.composer/vendor/bin/valet install
+
+if [ ! -f includes/bash_docker-compose.bash ]
+then
+    echo "Installing docker-compose autocomplete..."
+    curl -L https://raw.githubusercontent.com/docker/compose/1.21.2/contrib/completion/bash/docker-compose -o includes/bash_docker-compose.bash
+fi
+
+if [ ! -f bin/php-cs-fixer ]
+then
+    echo "Installing php-cs-fixer..."
+    curl -L https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/download/v2.9.0/php-cs-fixer.phar -o bin/php-cs-fixer
+    chmod +x bin/php-cs-fixer
+fi
+
+# Install global NPM packages
+npm install --global yarn
+
+# Create a Sites directory
+# This is a default directory for macOS user accounts but doesn't comes pre-installed
+mkdir $HOME/Sites
+
+# Removes .zshrc from $HOME (if it exists) and symlinks the .zshrc file from the .dotfiles
+# rm -rf $HOME/.zshrc
+# ln -s $HOME/.dotfiles/.zshrc $HOME/.zshrc
+
+# Symlink the Mackup config file to the home directory
+ln -s $HOME/.dotfiles/.mackup.cfg $HOME/.mackup.cfg
+
+# Set macOS preferences
+# We will run this last because this will reload the shell
+source .macos
+
+
+echo -n "Updating composer and dependencies... "
+bin/composer --quiet self-update
+echo "Done."
+
+if [ ! -L resources/git-template/hooks ]
+then
+    ln -s $HOME/dotfiles/resources/git-hooks resources/git-template/hooks
+fi
+
+popd > /dev/null
+
+echo "Run the following command to reload your prompt"
+echo
+echo "source ~/.bashrc"

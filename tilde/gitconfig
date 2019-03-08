@@ -1,0 +1,73 @@
+[color]
+    ui = auto
+
+[color "diff"]
+    meta = blue
+    frag = white
+    old = red
+    new = green
+
+[help]
+    autocorrect = 1
+
+[core]
+    editor = vim
+    # http://stackoverflow.com/questions/136178/git-diff-handling-long-lines
+    # If doesn't work, try: pager = less -+$LESS -FRX
+    pager = less -r
+    autocrlf = false
+    safecrlf = false
+    mergeoptions = --no-edit
+    excludesfile = ~/.gitignore
+
+[alias]
+    ls = log --stat
+    st = status --short --branch
+    rc = rebase --continue
+    rs = rebase --skip
+    rb = rebase
+    ri = rebase --interactive
+    rstash = stash --keep-index
+    graph = log --graph --pretty=format:'%C(magenta)%h%C(blue)%d%Creset %s %C(blue bold)- %an, %ar%Creset'
+    patch = add --patch
+    rpatch = reset HEAD --patch
+    cpatch = checkout --patch --
+    dstaged = diff --staged
+    pop = stash pop
+    ci = commit --verbose
+    cn = commit --verbose --no-verify
+    ca = commit --amend --verbose
+    master = checkout master
+    m = !git checkout master && git pull origin master
+    co = checkout
+    cb = checkout -b
+    di = diff
+    ds = diff --staged
+    rh = reset HEAD
+    ap = add --patch
+    sync = !git fetch origin && git rebase origin/master
+    latest = !git fetch --tags --prune origin && git tag | sort -rV | head -n 1
+    clatest = !git co $(git latest)
+    platest = !git push origin $(git latest)
+    changelog = !git log $(git latest)..origin/master --format='%h %an %s' | grep -v 'Merge pull request'
+    before = !git fetch --tags --prune origin && git tag | sort -rV | head -n 2 | tail -n 1
+    changebefore = !git log $(git before)..$(git latest) --format='%h %an %s' | grep -v 'Merge pull request'
+    release = !git tag $(semver -n $(git latest))
+    hotfix = !git tag $(semver -p $(git latest))
+
+[fetch]
+    prune = true
+
+[push]
+    default = current
+
+[init]
+    templatedir = ~/dotfiles/resources/git-template
+
+[include]
+    path = ~/.gitlocal
+
+[rebase]
+	autoStash = true
+[pull]
+	rebase = true

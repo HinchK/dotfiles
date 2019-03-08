@@ -1,5 +1,28 @@
 #!/bin/sh
 
+# Dotfiles and bootstrap installer
+# Installs git, clones repository and symlinks dotfiles to your home directory
+
+if ! command -v git >/dev/null 2>&1; then
+	echo "Error: Git is required."
+	exit
+fi
+
+# Clone dotfiles and make symlinks
+echo "Installing dotfiles..."
+cd ~ &&
+
+# Glone it
+git clone https://github.com/hinchk/dotfiles.git &&
+
+# Update
+dotfiles/update
+
+# Attempt to update the current session.
+source "~/.bashrc"
+
+echo "Dotfiles installed successfully."
+
 echo "Setting up your Mac..."
 
 # Check for Homebrew and install if we don't have it
