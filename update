@@ -3,11 +3,11 @@ pushd "$HOME/dotfiles" > /dev/null || exit 1;
 
 CURRENT_HASH=`md5sum update | awk '{ print $1 }'`
 
-# echo -n "Pulling changes... "
-# git pull
-# git submodule init
-# git submodule sync
-# git submodule update
+echo -n "Pulling changes... "
+git pull
+git submodule init
+git submodule sync
+git submodule update
 
 NEW_HASH=`md5sum update | awk '{ print $1 }'`
 if [ "$CURRENT_HASH" != "$NEW_HASH" ]
@@ -36,8 +36,8 @@ brew update
 brew tap homebrew/bundle
 brew bundle
 
-# Make ZSH the default shell environment
-# chsh -s $(which zsh)
+# Make ~ZSH~ bash the default shell environment
+chsh -s $(which bash)
 
 # Install PHP extensions with PECL
 pecl install imagick
