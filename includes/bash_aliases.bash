@@ -28,7 +28,7 @@ alias dc=docker-compose
 complete -F _docker d
 complete -F _docker_compose dc
 
-alias ll="$(brew --prefix coreutils)/libexec/gnubin/ls -ahlF --color --group-directories-first"
+alias ll='gls -ahlF --color --group-directories-first'
 weather() { curl -4 wttr.in/${1:-san_diego} ;}
 alias phpstorm='open -a /Applications/PhpStorm.app "`pwd`"'
 alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
