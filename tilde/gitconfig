@@ -71,3 +71,6 @@
 	autoStash = true
 [pull]
 	rebase = true
+[user]
+	name = Kasey Hinchman
+	email = kasey.hinchman@gmail.com
