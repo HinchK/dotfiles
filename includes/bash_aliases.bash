@@ -1,5 +1,7 @@
 alias sudo='sudo HOME="$HOME" SSH_CLIENT="$SSH_CLIENT" SSH_TTY="$SSH_TTY"'
 # alias grep='grep --color=auto'
+alias vscode='open -a /Applications/Visual\ Studio\ Code.app "`pwd`"'
+alias dircolors='gdircolors'
 alias ls='ls -G'
 alias svim='sudo vim'
 alias fuck='sudo $(history -p \!\!)' #https://twitter.com/liamosaur/status/506975850596536320/
