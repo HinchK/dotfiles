@@ -47,7 +47,6 @@ export COMPOSER_HOME="$HOME/.composer"
 [ -d /usr/sbin ] && _prepend_path "/usr/sbin"
 [ -d /usr/local/bin ] && _prepend_path "/usr/local/bin"
 [ -d ~/dotfiles/bin ] && _prepend_path "$HOME/dotfiles/bin"
-[ -d /usr/local/homebrew/bin ] && _prepend_path "/usr/local/homebrew/bin"
 [ -d "$COMPOSER_HOME/vendor/bin" ] && _prepend_path "$COMPOSER_HOME/vendor/bin"
 [ -d ~/bin ] && _prepend_path "$HOME/bin"
 export PATH
