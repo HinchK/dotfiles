@@ -1,8 +1,15 @@
+## dotfiles & first time MBP
+_aka_
+_"the safe word is 'harder"_
+
+
+A mind-meld of two dotfile provisioning approaches.   
+
+https://github.com/reenl/dotfiles
+
 # Dries's Dotfiles
 
-This repository serves as my way to help me setup and maintain my Mac. It takes the effort out of installing everything manually. Everything which is needed to install my preffered setup of macOS is detailed in this readme. Feel free to explore, learn and copy parts for your own dotfiles. Enjoy! :smile:
-
-Read the blog post: https://driesvints.com/blog/getting-started-with-dotfiles
+the blog post: https://driesvints.com/blog/getting-started-with-dotfiles
 
 ## A Fresh macOS Setup
 
