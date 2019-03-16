@@ -1,6 +1,6 @@
 # Taps
 tap 'caskroom/cask'
-# tap 'caskroom/eid'
+tap 'caskroom/eid'
 tap 'caskroom/fonts'
 tap 'caskroom/versions'
 tap 'homebrew/bundle'
@@ -8,6 +8,7 @@ tap 'homebrew/bundle'
 # Binaries
 brew 'awscli'
 brew 'bash' # Bash 4
+brew 'bash-completions'
 brew 'bat'
 brew 'coreutils' # Those that come with macOS are outdated
 brew 'git'
@@ -18,8 +19,9 @@ brew 'mas'
 brew 'pkg-config' # https://github.com/driesvints/dotfiles/issues/20
 brew 'trash'
 brew 'tree'
-# brew 'zsh'
-# brew 'zsh-completions'
+brew 'figlet'
+brew 'zsh'
+brew 'zsh-completions'
 
 # Development
 brew 'php'
@@ -28,6 +30,7 @@ brew 'mysql'
 brew 'nginx'
 brew 'node'
 brew 'redis'
+
 
 # Apps
 cask 'aerial'
