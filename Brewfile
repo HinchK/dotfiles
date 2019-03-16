@@ -30,7 +30,7 @@ brew 'mysql'
 brew 'nginx'
 brew 'node'
 brew 'redis'
-
+brew 'git-secrets'
 
 # Apps
 cask 'aerial'
