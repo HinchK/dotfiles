@@ -118,5 +118,9 @@ export LESS="${less_options[*]}"
 unset less_options
 export PAGER='less'
 
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi
+
 # Load extra (private) settings
 [ -f ~/.bashlocal ] && source ~/.bashlocal
