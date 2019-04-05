@@ -10,6 +10,7 @@ brew 'awscli'
 brew 'bash' # Bash 4
 brew 'bash-completions'
 brew 'bat'
+brew 'cheat'
 brew 'coreutils' # Those that come with macOS are outdated
 brew 'git'
 brew 'gnupg2'
@@ -31,6 +32,29 @@ brew 'nginx'
 brew 'node'
 brew 'redis'
 brew 'git-secrets'
+brew 'nano', args: ['disable-nls', 'enable-color', 'enable-extra', 'enable-multibuffer', 'enable-nanorc', 'enable-utf8']
+brew 'python'
+
+# Tools
+brew 'tig'
+brew 'less'
+brew 'pick'
+brew 'openssh'
+brew 'rsync'
+brew 'unzip'
+brew 'jq'
+brew 'jsonpp'
+brew 'mycli'
+brew 'gist'
+brew 'asciinema'
+brew 'hub'
+brew 'hh'
+brew 'neofetch'
+brew 'graphviz'
+brew 'direnv'
+brew 'httpstat'
+brew 'docker-completion'
+brew 'docker-compose-completion'
 
 # Apps
 cask 'aerial'
