@@ -4,6 +4,7 @@ tap 'caskroom/eid'
 tap 'caskroom/fonts'
 tap 'caskroom/versions'
 tap 'homebrew/bundle'
+tap 'wilmoore/formulae'
 
 # Binaries
 brew 'awscli'
@@ -34,6 +35,7 @@ brew 'redis'
 brew 'git-secrets'
 brew 'nano', args: ['disable-nls', 'enable-color', 'enable-extra', 'enable-multibuffer', 'enable-nanorc', 'enable-utf8']
 brew 'python'
+brew 'php-version'
 
 # Tools
 brew 'tig'
@@ -52,6 +54,7 @@ brew 'hh'
 brew 'neofetch'
 brew 'graphviz'
 brew 'direnv'
+brew 'pyenv'
 brew 'httpstat'
 brew 'docker-completion'
 brew 'docker-compose-completion'
@@ -94,6 +97,7 @@ cask 'quicklook-csv'
 cask 'qlstephen'
 
 # Fonts
+cask 'font-fira-code'
 cask 'font-lato'
 cask 'font-open-sans'
 cask 'font-roboto'
