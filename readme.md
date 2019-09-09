@@ -1,22 +1,3 @@
-# day 1 PC -> MBP
-
-LETS DO THIS DOTFILE THING
-
-_aka_ _"the safe word is 'harder"_
-
-A mind-meld of two dotfile provisioning methodologies
-
-https://github.com/driesvints/dotfiles
-
-
-https://github.com/reenl/dotfiles
-
-FORK of driese's, focus on PHP development and heterogeneous systems administration.
-
-use at your own risk!
-(still building application lists)
-
-
 ### Dries's Dotfiles
 
 the blog post: https://driesvints.com/blog/getting-started-with-dotfiles
