@@ -5,3 +5,4 @@
 /includes/bash_docker-compose.bash
 .vscode/
 bashlocal
+.DS_Store
