@@ -40,3 +40,6 @@ Thumbs.db
 .vagrant/
 .history/
 
+_ide_helper.php
+.hinchk-env.env
+.php_cs.cache
