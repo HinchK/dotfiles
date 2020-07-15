@@ -7,3 +7,5 @@
 bashlocal
 .DS_Store
 .history/
+.vscode/settings.json
+
